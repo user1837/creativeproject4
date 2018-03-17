@@ -15,6 +15,11 @@ var app = new Vue({
 	created: function() {
     	this.getFlashcards();
   	},
+  	watch: {
+    	flashcards: function(value,oldvalue) {
+      		this.startQuiz();
+    	}
+  	},
   	computed: {
   		frontText: function() {
   			if (!this.endOfCards) {
@@ -24,7 +29,7 @@ var app = new Vue({
   				  return this.currentCard.backText;
   				}
   			} else {
-  				return "Done! Click 'Flashcard Quiz' to play again";
+  				return "No cards left in the deck. Add cards to start or click 'Start Flashcards' to start over.";
   			}
   		}
   	},
@@ -104,9 +109,14 @@ var app = new Vue({
 		startQuiz: function() {
 			this.clearAnswers();
 			this.showCards = true;
-			this.endOfCards = false;
-			this.currentIndex = 0;
-			this.currentCard = this.flashcards[this.currentIndex];
+			this.showFront = true;
+			if (this.flashcards.length > 0) {
+				this.endOfCards = false;
+				this.currentIndex = 0;
+				this.currentCard = this.flashcards[this.currentIndex];
+			} else {
+				this.endOfCards = true;
+			}
 		},
 		addSMCard: function() {
 			this.softlyMutate();
@@ -152,9 +162,31 @@ var app = new Vue({
 			this.addNMCard();
 			this.addAMCard();
 		},
-		deleteMemorized: function() {
+		memorizeCard: function() {
+			axios.put("http://localhost:3001/api/flashcards/" + this.currentCard.id, {
+				frontText: this.currentCard.frontText,
+				backText: this.currentCard.backText,
+				memorized: !this.currentCard.memorized,
+				cardHeader: this.currentCard.cardHeader
+			}).then(response => {
+				this.getFlashcards();
+				return true;
+			}).catch(err => {
+			});
 		},
-		deleteCard: function(flashcard) {
+		deleteMemorized: function() {
+			this.flashcards.forEach(card => {
+				if (card.memorized) {
+					this.deleteCard(card);
+				}
+			});
+		},
+		deleteCard: function(card) {
+			axios.delete("http://localhost:3001/api/flashcards/" + card.id).then(response => {
+				this.getFlashcards();
+				return true;
+			}).catch(err => {
+			});
 		},
 		flip: function() {
 			this.showFront = !this.showFront;
