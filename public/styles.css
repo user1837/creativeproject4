@@ -1,0 +1,125 @@
+.header {
+	display: grid;
+	grid-template-columns: 205px auto;
+	grid-column-gap: 5px;
+	margin: 15px;
+}
+
+h1 {
+	align-self: end;
+	font-family: "Garamond";
+	font-size: 35px;
+}
+
+#inputBox {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#container {
+	display: grid;
+	grid-template-columns: 20% 20% 20%;
+	grid-column-gap: 15px;
+	grid-row-gap: 15px;
+	margin-top: 15px;
+	margin-left: 15px;
+	margin-right: 15px;
+	margin-bottom: 30px;
+	justify-content: center;
+}
+
+input {
+	font-size: 25px;
+	margin: 5px;
+	font-family: "Garamond";
+}
+
+p {
+	text-align: center;
+	font-size: 30px;
+	font-family: "Garamond";
+}
+
+button {
+	font-size: 25px;
+	padding: 5px;
+	font-family: "Garamond";
+}
+
+button:hover {
+	cursor: pointer;
+	background-color: #00AB39;
+}
+
+label {
+	font-size: 25px;
+	font-family: "Garamond";
+}
+
+a {
+	color: black;
+}
+
+a:hover {
+	cursor: pointer;
+	color: #00AB39;
+}
+
+#about {
+	margin: 50px;
+	padding-right: 75px;
+	padding-left: 75px;
+}
+
+.intro {
+	font-size: 23px;
+	margin-right: 75px;
+	margin-left: 75px;
+	float: center;
+}
+
+.footer {
+	margin-left: 15px;
+	margin-right: 15px;
+	margin-bottom: 15px;
+	margin-top: 30px;
+	font-size: 23px;
+	text-align: center;
+}
+
+.flashcardButtons {
+	display: grid;
+	grid-template-columns: 20% 20% 20%;
+	grid-column-gap: 15px;
+	grid-row-gap: 15px;
+	margin-top: 15px;
+	margin-left: 15px;
+	margin-right: 15px;
+	margin-bottom: 30px;
+	justify-content: center;
+}
+
+.cards {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.card {
+	width: 400px;
+	height: 250px;
+	border: 3px solid black;
+}
+
+.navigatorButtons {
+	display: grid;
+	grid-template-columns: 30% 30% 30%;
+	grid-column-gap: 15px;
+	grid-row-gap: 15px;
+	margin-top: 15px;
+	margin-left: 15px;
+	margin-right: 15px;
+	margin-bottom: 30px;
+	justify-content: center;
+}
