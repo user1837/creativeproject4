@@ -82,6 +82,7 @@ a:hover {
 	margin-right: 75px;
 	margin-left: 75px;
 	float: center;
+	text-align: justify;
 }
 
 .footer {
@@ -139,4 +140,51 @@ a:hover {
 	margin-bottom: 30px;
 	justify-content: center;
 }
-/*Google fonts: Uncial Antiqua or Almendra Display for headers, */
+
+@media screen and (max-width : 845px) {
+	#about {
+		margin-right: 20px;
+		margin-left: 20px;
+		padding-right: 0px;
+		padding-left: 0px;
+	}
+	.intro {
+		margin-right: 20px;
+		margin-left: 20px;
+	}
+}
+
+@media screen and (max-width: 650px) {
+	#container, .flashcardButtons {
+		grid-template-columns: 30% 30% 30%;
+	}
+	
+}
+
+@media screen and (max-width : 520px) {
+	.intro, input, label {
+		font-size: 20px;
+	}
+	h1 {
+		font-size: 25px;
+	}
+	.card {
+		width: 300px;
+		height: 188px;
+	}
+	#cardText, #cardLabel, button, p {
+		font-size: 15px;
+	}
+}
+@media screen and (max-width: 375px) {
+	h1 {
+		font-size: 20px;
+	}
+	img {
+		width: 150px;
+		height: 90px;
+	}
+	.header {
+		grid-template-columns: 155px auto;
+	}
+}
