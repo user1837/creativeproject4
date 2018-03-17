@@ -7,8 +7,13 @@
 
 h1 {
 	align-self: end;
-	font-family: "Garamond";
+	font-family: 'Uncial Antiqua', cursive;
 	font-size: 35px;
+}
+
+h2 {
+	text-align: center;
+	font-family: 'Uncial Antiqua', cursive;
 }
 
 #inputBox {
@@ -32,19 +37,19 @@ h1 {
 input {
 	font-size: 25px;
 	margin: 5px;
-	font-family: "Garamond";
+	font-family: 'Almendra', serif;
 }
 
 p {
 	text-align: center;
 	font-size: 30px;
-	font-family: "Garamond";
+	font-family: 'Almendra', serif;
 }
 
 button {
 	font-size: 25px;
 	padding: 5px;
-	font-family: "Garamond";
+	font-family: 'Almendra', serif;
 }
 
 button:hover {
@@ -54,7 +59,7 @@ button:hover {
 
 label {
 	font-size: 25px;
-	font-family: "Garamond";
+	font-family: 'Almendra', serif;
 }
 
 a {
@@ -86,6 +91,7 @@ a:hover {
 	margin-top: 30px;
 	font-size: 23px;
 	text-align: center;
+	font-family: 'Almendra', serif;
 }
 
 .flashcardButtons {
@@ -109,7 +115,17 @@ a:hover {
 .card {
 	width: 400px;
 	height: 250px;
-	border: 3px solid black;
+	border: 1px solid black;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
+}
+
+#cardText {
+	font-family: 'Architects Daughter', cursive;
+	font-size: 25px;
+}
+
+#cardLabel {
+	font-family: 'Architects Daughter', cursive;
 }
 
 .navigatorButtons {
@@ -123,3 +139,4 @@ a:hover {
 	margin-bottom: 30px;
 	justify-content: center;
 }
+/*Google fonts: Uncial Antiqua or Almendra Display for headers, */
