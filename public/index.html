@@ -39,13 +39,13 @@
    	 	<div class="cards" v-if="showCards">
    	 		<div class="card">
    	 			<button v-on:click="deleteCard(flashcard)" class="delete">X</button>
-   	 			<p > {{ frontText }} </p>
+   	 			<p> {{ frontText }} </p>
    	 			<input type="checkbox" /> <label>Memorized </label>
    	 		</div>
    	 		<div class="navigatorButtons">
-   	 			<button>Last</button>
+   	 			<button v-on:click="getLast">Last</button>
    	 			<button v-on:click="flip">Flip</button>
-   	 			<button>Next</button>
+   	 			<button v-on:click="getNext">Next</button>
    	 		</div>
    	 	</div>
    	 	<hr>

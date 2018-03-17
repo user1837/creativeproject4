@@ -9,6 +9,7 @@ var app = new Vue({
 		currentCard: {},
 		showCards: false,
 		showFront: true,
+		endOfCards: false,
 		currentIndex: 0
 	},
 	created: function() {
@@ -16,10 +17,14 @@ var app = new Vue({
   	},
   	computed: {
   		frontText: function() {
-  			if (this.showFront) {
-  				return this.currentCard.cardHeader + this.currentCard.frontText;
+  			if (!this.endOfCards) {
+  				if (this.showFront) {
+  				  return this.currentCard.cardHeader + this.currentCard.frontText;
+  				} else {
+  				  return this.currentCard.backText;
+  				}
   			} else {
-  				return this.currentCard.backText;
+  				return "Done! Click 'Flashcard Quiz' to play again";
   			}
   		}
   	},
@@ -91,8 +96,16 @@ var app = new Vue({
       		}).catch(err => {
       		});
     	},
+    	clearAnswers: function() {
+    		this.smWord = '';
+    		this.nmWord = '';
+    		this.amWord = '';
+    	},
 		startQuiz: function() {
+			this.clearAnswers();
 			this.showCards = true;
+			this.endOfCards = false;
+			this.currentIndex = 0;
 			this.currentCard = this.flashcards[this.currentIndex];
 		},
 		addSMCard: function() {
@@ -145,6 +158,23 @@ var app = new Vue({
 		},
 		flip: function() {
 			this.showFront = !this.showFront;
+		},
+		getLast: function() {
+			this.showFront = true;
+			this.currentIndex = this.currentIndex - 1;
+			if (this.currentIndex < 0) {
+				this.currentIndex = 0;
+			} 
+			this.currentCard = this.flashcards[this.currentIndex];
+		},
+		getNext() {
+			this.showFront = true;
+			this.currentIndex = this.currentIndex + 1;
+			if (this.currentIndex >= this.flashcards.length) {
+				this.endOfCards = true;
+			} else {
+				this.currentCard = this.flashcards[this.currentIndex];
+			}
 		}
 	}
 });
