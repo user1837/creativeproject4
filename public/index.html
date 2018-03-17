@@ -38,9 +38,9 @@
    	 	</div>
    	 	<div class="cards" v-if="showCards">
    	 		<div class="card">
-   	 			<button v-on:click="deleteCard(flashcard)" class="delete">X</button>
+   	 			<button v-on:click="deleteCard(currentCard)" class="delete">X</button>
    	 			<p> {{ frontText }} </p>
-   	 			<input type="checkbox" /> <label>Memorized </label>
+   	 			<input type="checkbox" v-model="currentCard.memorized" v-on:click="memorizeCard"/> <label>Memorized </label>
    	 		</div>
    	 		<div class="navigatorButtons">
    	 			<button v-on:click="getLast">Last</button>
